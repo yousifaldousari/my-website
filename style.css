@@ -72,6 +72,11 @@ code {
   padding: 72px 0;
 }
 
+/* Ensure anchored sections aren't hidden under the sticky header */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
 /* Accessible skip link */
 .skip-link {
   position: absolute;
@@ -690,9 +695,17 @@ code {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+
+   .certificates-grid {
+     grid-template-columns: 1fr;
+   }
 }
 
 @media (max-width: 640px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
   .section {
     padding: 58px 0;
   }
@@ -715,6 +728,12 @@ code {
 
   .timeline-dot {
     top: 24px;
+  }
+
+  /* On small screens, always show sections even if JS is disabled or delayed */
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 
